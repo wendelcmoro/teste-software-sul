@@ -9,12 +9,12 @@
 2. [Execução Padrão do projeto](#Execução-Padrão-do-projeto)<br>
    2.1 [Instalando Dependências e configurando variáveis de ambiente](##Instalando-Dependências-e-configurando-variáveis-de-ambiente)<br>
    2.2 [Iniciando o projeto](##Iniciando-o-projeto)<br>
-3. [Testando a aplicação](#Testando a aplicação)<br>
-   3.1 [Tela de Login](##Tela de Login)<br>
+3. [Testando a aplicação](#Testando-a-aplicação)<br>
+   3.1 [Tela de Login](##Tela-de-Login)<br>
    3.2 [Dashboard](##Dashboard)<br>
-   3.3 [Listagem de Livros](##Listagem de Livros)<br>
-   3.4 [Cadastro de Livros](##Cadastro de Livros)<br>
-   3.5 [Listagem de Reservas](##Listagem de Reservas)<br>
+   3.3 [Listagem de Livros](##Listagem-de-Livros)<br>
+   3.4 [Cadastro de Livros](##Cadastro-de-Livros)<br>
+   3.5 [Listagem de Reservas](##Listagem-de-Reservas)<br>
 
 ## 1 Requisitos
 
