@@ -36,7 +36,7 @@
                             value={{ $book ? $book->author : '' }}>
 
                         <!-- Description -->
-                        <label for="description" class="block text-sm font-medium text-gray-700">Senha</label>
+                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                         <textarea type="description" id="description" name="description" placeholder="Book Description" required
                             class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none mb-4">{{ $book ? $book->description : '' }}</textarea>
 

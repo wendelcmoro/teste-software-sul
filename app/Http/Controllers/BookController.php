@@ -29,18 +29,8 @@ class BookController extends Controller
         ]);
     }
 
-    public function getEditBook($bookId = null): View
+    public function getEditBook(Request $request, $bookId = null): View
     {   
-        $request->validate(
-			[
-				'title'              => 'required|max:255',
-				'author'             => 'required|max:255',
-				'description'        => 'required|max:255',
-				'isbn'               => 'required|max:13',
-				'quantity_available' => 'required|integer',
-			]
-		);
-
         return view(
             'books/edit-book',
             [
@@ -52,6 +42,16 @@ class BookController extends Controller
     public function postStoreBook(Request $request, $bookId = null) : RedirectResponse 
     {
 		$book = Book::find($bookId);
+
+        $request->validate(
+			[
+				'title'              => 'required|max:255',
+				'author'             => 'required|max:255',
+				'description'        => 'required|max:255',
+				'isbn'               => 'required|max:13',
+				'quantity_available' => 'required|integer',
+			]
+		);
 
         if (!$book) {
             $book = new Book;
