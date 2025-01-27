@@ -9,8 +9,18 @@ use Illuminate\View\View;
 
 use App\Models\Book;
 
+/**
+ * Controlador responsável pela busca, edição, criação e exclusão de livros
+ *
+ * @package App\Http\Controllers
+ */
 class BookController extends Controller
 {
+    /**
+     * Exibe uma tela com a listagem de  todos os livros cadastrados
+     *
+     * @return View
+     */
     public function getBooks(Request $request): View
     {   
         $books = Book::query();
@@ -29,6 +39,12 @@ class BookController extends Controller
         ]);
     }
 
+
+    /**
+     * Acessa página de edição de um livro
+     *
+     * @return View
+     */
     public function getEditBook(Request $request, $bookId = null): View
     {   
         return view(
@@ -39,6 +55,11 @@ class BookController extends Controller
         );
     }
 
+    /**
+     * Salva/Edita um livro
+     *
+     * @return RedirectResponse
+     */
     public function postStoreBook(Request $request, $bookId = null) : RedirectResponse 
     {
 		$book = Book::find($bookId);
@@ -48,7 +69,7 @@ class BookController extends Controller
 				'title'              => 'required|max:255',
 				'author'             => 'required|max:255',
 				'description'        => 'required|max:255',
-				'isbn'               => 'required|max:13',
+				'isbn'               => 'required|digits:13',
 				'quantity_available' => 'required|integer',
 			]
 		);
@@ -64,5 +85,18 @@ class BookController extends Controller
         $book->save();
 
 		return redirect()->route('books.book-listing');
+	}
+
+     /**
+     * Exclui um livro
+     *
+     * @return RedirectResponse
+     */
+    public function postDeleteBook($bookId) : RedirectResponse 
+    {
+		$book = Book::findOrFail($bookId);
+        $book->delete();
+
+		return redirect()->back();
 	}
 }

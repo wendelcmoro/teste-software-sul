@@ -10,8 +10,18 @@ use Illuminate\View\View;
 use App\Models\Book;
 use App\Models\BookReservation;
 
+/**
+ * Controlador responsável pela busca, edição, criação e cancelamento de reservas de Livros
+ *
+ * @package App\Http\Controllers
+ */
 class BookReserveController extends Controller
 {
+    /**
+     * Exibe uma tela com a lista todas as reservas feitas pelo usuário
+     *
+     * @return View
+     */
     public function getBookReservations(Request $request): View
     {   
         $reserves = BookReservation::with(['book', 'user'])->where('user_id', auth()->User()->id);
@@ -30,6 +40,11 @@ class BookReserveController extends Controller
         ]);
     }
 
+     /**
+     * Interação do usuário, cria uma reserva
+     *
+     * @return RedirectResponse
+     */
     public function postReserveBook($bookId) : RedirectResponse 
     {
 		$book = Book::findOrFail($bookId);
@@ -46,6 +61,11 @@ class BookReserveController extends Controller
         return redirect()->back();
 	}
 
+      /**
+     * Interação do usuário, cancela uma reserva
+     *
+     * @return RedirectResponse
+     */
     public function postCancelReserve($reserveId) : RedirectResponse 
     {
 		$reserve = BookReservation::findOrFail($reserveId);

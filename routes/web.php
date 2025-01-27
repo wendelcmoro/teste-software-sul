@@ -24,10 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Livros
+    // Rotas - Livros
     Route::get('/book-listing', [BookController::class, 'getBooks'])->name('books.book-listing');
     
-    // Reserva de Livros
+    // Rotas - Reserva de Livros
     Route::get('/reserve-listing', [BookReserveController::class, 'getBookReservations'])->name('reserves.reserve-listing');
     Route::post('/reserve-book/{book_id}', [BookReserveController::class, 'postReserveBook'])->name('reserves.reserve-book');
     Route::post('/delete-reserve/{reserve_id}', [BookReserveController::class, 'postCancelReserve'])->name('reserves.cancel-reserve');
@@ -35,9 +35,10 @@ Route::middleware('auth')->group(function () {
     // Rotas descritas a partir daqui são apenas acessíveis por ADMINs
     Route::middleware('auth:admin')->group(
         function() {
-            // Livros
+            // Rotas - Livros
             Route::get('/edit-book/{book_id?}', [BookController::class, 'getEditBook'])->name('books.edit-book');
-            Route::post('/edit-book/{book_id?}', [BookController::class, 'postStoreBook'])->name('books.edit-books');
+            Route::post('/edit-book/{book_id?}', [BookController::class, 'postStoreBook'])->name('books.edit-book');
+            Route::post('/delete/{book_id?}', [BookController::class, 'postDeleteBook'])->name('books.delete-book');
         }
     );
 });

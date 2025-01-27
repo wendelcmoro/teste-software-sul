@@ -33,6 +33,26 @@ class UserFactory extends Factory
         ];
     }
 
+         /**
+     * Set the user to ADMIN
+     */
+    public function admin()
+    {
+        return $this->state(fn () => [
+            'type' => 'ADMIN',
+        ]);
+    }
+
+     /**
+     * Set the user to Default
+     */
+    public function user()
+    {
+        return $this->state(fn () => [
+            'type' => 'USER',
+        ]);
+    }
+
     /**
      * Indicate that the model's email address should be unverified.
      */

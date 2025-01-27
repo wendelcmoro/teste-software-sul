@@ -9,12 +9,13 @@
 2. [Execução Padrão do projeto](#Execução-Padrão-do-projeto)<br>
    2.1 [Instalando Dependências e configurando variáveis de ambiente](##Instalando-Dependências-e-configurando-variáveis-de-ambiente)<br>
    2.2 [Iniciando o projeto](##Iniciando-o-projeto)<br>
-3. [Testando a aplicação](#Testando-a-aplicação)<br>
-   3.1 [Tela de Login](##Tela-de-Login)<br>
-   3.2 [Dashboard](##Dashboard)<br>
-   3.3 [Listagem de Livros](##Listagem-de-Livros)<br>
-   3.4 [Cadastro de Livros](##Cadastro-de-Livros)<br>
-   3.5 [Listagem de Reservas](##Listagem-de-Reservas)<br>
+3. [Estrutura do projeto](#Estrutura-do-projeto)<br>
+4. [Testando a aplicação](#Testando-a-aplicação)<br>
+   4.1 [Tela de Login](##Tela-de-Login)<br>
+   4.2 [Dashboard](##Dashboard)<br>
+   4.3 [Listagem de Livros](##Listagem-de-Livros)<br>
+   4.4 [Cadastro de Livros](##Cadastro-de-Livros)<br>
+   4.5 [Listagem de Reservas](##Listagem-de-Reservas)<br>
 
 ## 1 Requisitos
 
@@ -77,37 +78,50 @@ npm run dev
 O app agora deve ser acessível pela **url**:
  - http://localhost:8000 
 
+# 3. Estrutura do projeto
+- **app/Models:** Contém os modelos Eloquent.
+- **app/Http/Controllers:** Controladores que gerenciam as requisições.
+- **resources/views:** Arquivos Blade para as views.
+- **routes/web.php:** Rotas do sistema.
+- **database/:** Migrations para geração das tabelas, definição das factories e seeders para geração de models fake.
 
-# 3. Testando a aplicação
+# 4. Testando a aplicação
 
-## 3.1 Tela de Login
+## 4.1 Tela de Login
 
 A tela de login terá os campos de autenticação padrões, além de um botão de login e uma **url** para registrar um usuário novo.
 
-Por padrão, as migrations irão criar um usuário ADMIN com as seguintes credenciais para teste:
+Por padrão, as migrations irão criar um usuário ADMIN e um usuário com permissões padrão com as seguintes credenciais para teste:
+
+Admin:
 
 - Email: test@example.com
 - Senha: password
 
-## 3.2 Dashboard
+Padrão:
+
+- Email: user@example.com
+- Senha: password
+
+## 4.2 Dashboard
 
 A tela de dashboard, possui dois botões, um dá acesso à listagem de livros e outro acesso às reservas do usuário autenticado.
 
-## 3.3 Listagem de Livros
+## 4.3 Listagem de Livros
 
 A tela de listagem de livros, primeiramente lista os livros cadastrados no banco de dados. Adicionalmente tem três funcionalidades extras:
 
-- Para ADMINs, possui um botão de cadastrar um novo Livro, e cada livro na listagem aparece uma ação para editar o cadastro do livro específico
+- Para ADMINs, possui um botão de cadastrar um novo Livro, e cada livro na listagem aparece uma ação para editar e excluir o livro específico
 
 - Para todos os usuários, exibe uma ação para reservar o livro em questão
 
 - Para todos os usuários, tem um campo de barra de pesquisa que filtra pelos campos de Título, autor e ISBN, é necessário interagir com o botão de pesquisa para aplicar o filtro
 
-## 3.4 Cadastro de Livros
+## 4.4 Cadastro de Livros
 
 A tela é apenas disponível para ADMINs, permite o cadastro ou alteração de um livro
 
-## 3.5 Listagem de Reservas
+## 4.5 Listagem de Reservas
 
 A tela de listagem de reservar, primeiramente lista as reservar que o usuário autenticado realizou. Adicionalmente tem duas funcionalidades extras:
 

@@ -8,7 +8,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if (auth()->User()->type == 'ADMIN')
-                <a href="{{ route('books.edit-book') }}" class="p-4 text-center font-bold text-green-700">Create New
+                <a href="{{ route('books.edit-book') }}"
+                    class="text-xl p-4 text-center font-bold bg-green-700 text-white">Create
+                    New
                     Book</a>
             @endif
 
@@ -24,7 +26,7 @@
             </form>
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="grid grid-cols-6 gap-4 font-bold">
+                <div class="grid grid-cols-7 gap-4 font-bold">
                     <div class=" p-4 text-center">Title</div>
                     <div class=" p-4 text-center">Author</div>
                     <div class=" p-4 text-center">Description</div>
@@ -33,16 +35,25 @@
                     <div class=" p-4 text-center">Actions</div>
                 </div>
                 @foreach ($books as $book)
-                    <div class="grid grid-cols-6 gap-4">
+                    <div class="grid grid-cols-7 gap-4">
                         <div class="p-4 text-center">{{ $book->title }}</div>
                         <div class="p-4 text-center">{{ $book->author }}</div>
                         <div class="p-4 text-center">{{ $book->description }}</div>
                         <div class="p-4 text-center">{{ $book->isbn }}</div>
                         <div class="p-4 text-center">{{ $book->quantity_available }}</div>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-3 gap-4">
                             @if (auth()->User()->type == 'ADMIN')
                                 <a href="{{ route('books.edit-book', [$book->id]) }}"
                                     class="p-4 text-end text-red-500 font-bold">Edit</a>
+                            @endif
+                            @if (auth()->User()->type == 'ADMIN')
+                                <form action="{{ route('books.delete-book', [$book->id]) }}" method="POST"
+                                    class="inline">
+                                    @csrf
+                                    <button type="submit" class="p-4 text-end text-red-500 font-bold">
+                                        Delete
+                                    </button>
+                                </form>
                             @endif
                             <form action="{{ route('reserves.reserve-book', [$book->id]) }}" method="POST"
                                 class="inline">
