@@ -16,6 +16,8 @@
    4.3 [Listagem de Livros](##Listagem-de-Livros)<br>
    4.4 [Cadastro de Livros](##Cadastro-de-Livros)<br>
    4.5 [Listagem de Reservas](##Listagem-de-Reservas)<br>
+5. [Testes](#Testes)<br>
+6. [Decisões Técnicas](#Decisões-Técnicas)<br>
 
 ## 1 Requisitos
 
@@ -128,3 +130,23 @@ A tela de listagem de reservar, primeiramente lista as reservar que o usuário a
 - Exibe uma ação para cancelar a reserva especificada
 
 - Tem um campo de barra de pesquisa que filtra as reservas de acordo com o livro reservado, os campos de filtro sãos os mesmos da listagem de livros
+
+# 5. Testes
+
+Os testes unitários podem ser encontrados no diretório à seguir:
+
+- **app/tests:** Contém os arquivos de testes unitários
+
+**OBS: É necessário configurar o arquivo *ENV* de testes, como a configuração do banco é local, optei por manter as mesmas configurações de banco de dados que já havia configurado.**
+
+Para executar os testes, basta executar o comando à seguir:
+
+```console
+php artisan test
+```
+
+# 6. Decisões Técnicas
+
+A princípio as deciões de versionamento do php, mariadb, node e composer, se baseiam mais na configuração da minha máquina local, que já possui configurado os requisitos.
+
+Para autenticação do app, para facilitar e diminuir o tempo de desenvolvimento, optei por configurar o **Laravel Breeze**, que já inclui seus próprios testes também.
