@@ -16,7 +16,7 @@
    4.3 [Listagem de Livros](##Listagem-de-Livros)<br>
    4.4 [Cadastro de Livros](##Cadastro-de-Livros)<br>
    4.5 [Listagem de Reservas](##Listagem-de-Reservas)<br>
-5. [Testes](#Testes)<br>
+5. [Testes-Automatizados](#Testes-Automatizados)<br>
 6. [Decisões Técnicas](#Decisões-Técnicas)<br>
 
 ## 1 Requisitos
@@ -131,7 +131,7 @@ A tela de listagem de reservar, primeiramente lista as reservar que o usuário a
 
 - Tem um campo de barra de pesquisa que filtra as reservas de acordo com o livro reservado, os campos de filtro sãos os mesmos da listagem de livros
 
-# 5. Testes
+# 5. Testes Automatizados
 
 Os testes unitários podem ser encontrados no diretório à seguir:
 
