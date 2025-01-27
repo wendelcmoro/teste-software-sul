@@ -59,6 +59,12 @@ Configurando as variáveis de acesso ao banco de dados conforme a seguir:
 
 As variáveis aqui definidas foram utilizadas como exemplo, então ao configurar o ambiente local deve-se alterar de acordo com as configurações locais.
 
+Gerando chave da aplicação:
+
+```console
+php artisan key:generate
+```
+
 Por último, é necessário criar as *migrations* padrões do projeto executando:
 
 ```console
